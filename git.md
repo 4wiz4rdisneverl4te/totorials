@@ -72,6 +72,35 @@ Create a new commit, which represents a snapshot of the current state of the rep
 ```
 git commit -m "confirmation message"
 ```
+
+## Merge
+Combine changes from one branch into another branch. It integrates the changes made in the source branch into the target branch, creating a new merge commit.
+
+<br>
+
+If you have a branch called feature and you want to merge its changes into the main branch first checkout to main branch and them
+```
+git merge feature
+```
+
+## Checkout
+Switch between branches or restore files from different commits. It allows you to navigate between different states of your project.
+
+<br>
+
+Switch to an existing branch
+```
+git checkout <branch-name>
+```
+
+<br>
+
+Create a new branch and automatically switch to it in a single step
+
+```
+git checkout -b <branch-name>
+```
+
   
 ## Branch
 
