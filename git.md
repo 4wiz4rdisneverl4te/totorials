@@ -1,16 +1,16 @@
-# git
+# Git
 
 Git is a distributed version control system that allows multiple developers to collaborate on a project and track changes to source code or any other set of files.
 
 # Intro
 Easy way to create a repository and add a remote origin
 ```
-echo "# aaa" >> README.md
+echo "# repository_name" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin git@github.com:user_name/repository:name.git
+git remote add origin git@github.com:user_name/repository_name.git
 git push -u origin main
 ```
 
@@ -23,6 +23,17 @@ git log --graph --oneline --decorate --all
 ```
 
 # Commands
+
+## Clone
+Clone a repository from remote
+
+```
+git clone <repository-url>
+```
+
+<br>
+
+When you clone a repository you dont need make "git remote add origin ...." because the remote is set automatically
 
 ##  Init
 initialize a new Git repository in an existing directory. 
@@ -100,8 +111,71 @@ Create a new branch and automatically switch to it in a single step
 ```
 git checkout -b <branch-name>
 ```
+## Tag
+Add a tag to a specific commit in Git
 
-  
+<br>
+
+Simple tag 
+
+```
+git tag <tag-name> <commit>   # <commit> can be empty to put a tag in the current commit
+```
+
+<br>
+
+Push the tags to a remote repository,
+
+```
+git push --tags
+```
+
+## Push
+Push your local changes to a remote repository in Git
+
+```
+git push <remote-name> <branch-name>
+```
+
+## Pull
+Fetch changes from a remote repository and merge them into the current branch.
+
+```
+git pull <remote-name> <branch-name>
+```
+
+<br>
+
+
+If you want to pull changes from the default remote repository named "origin" into the current branch, you can simply use
+
+```
+git pull
+```
+
+## Remote
+List the remote repositories configured in your Git repository
+
+```
+git remote -v
+```
+
+<br>
+
+Add remote repository
+
+```
+git remote add <remote-name> <remote-url>
+```
+
+<br>
+
+Example to add Github
+
+```
+git remote add origin git@github.com:user_name/repository:name.git
+```
+
 ## Branch
 
 Manage branches within a repository. Branches allow you to work on different lines of development independent of each other, making it easier to work on new features, bug fixes, or experiments without affecting the main codebase.    
