@@ -35,6 +35,48 @@ git clone <repository-url>
 
 When you clone a repository you dont need make "git remote add origin ...." because the remote is set automatically
 
+## config
+Configure Git on your local machine. It allows you to set various Git configuration options, such as your name, email, preferred text editor, default branch name, and more.
+
+<br>
+
+Set your name
+```
+git config --global user.name "Your Name"
+```
+
+<br>
+
+Set your preferred text editor
+
+```
+git config --global user.email "your@example.com"
+```
+
+<br>
+
+Set your preferred text editor
+
+```
+git config --global core.editor "your-editor"
+```
+
+<br>
+
+
+Set the default branch name
+```
+git config --global init.defaultBranch "main"
+```
+
+<br>
+
+List your Git configuration
+
+```
+git config --list
+```
+
 ##  Init
 initialize a new Git repository in an existing directory. 
 
