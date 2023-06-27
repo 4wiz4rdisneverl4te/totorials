@@ -1,10 +1,12 @@
 # SSH
 
-## Ejemplos
+<br>
 
-### Conexiones básicas
+## 2. Ejemplos
 
-#### Como conectarse por SSH desde un computador A a un computador B
+<br>
+
+#### 2.1 Como conectarse por SSH desde un computador A a un computador B
 
 1. Escribir en una terminal del computador A:
 
@@ -18,7 +20,31 @@
     ssh -p 2222 usuarioB@192.168.0.10
     ```
 
-#### Como conectarse por SSH desde un computador A a un computador B cuando puerto SSH de computador B no es el predeterminado (22)
+<br>
+
+### 2.2 Crear llave SSH
+
+```
+ssh-keygen -t ed25519 -a 1000 -f ssh_key_for_xxxx -C user@email.com
+```
+
+-t : tipo de encriptación.
+-f : nombre del archivo
+-a : numero de rondas para descifrar la clave privada. Los números más altos dan como resultado una verificación mas lenta de la contraseña (passphrase) y mayor resistencia al descifrado de contraseñas por fuerza bruta (en caso de robo de las claves). El valor predeterminado es 16 rondas.
+-C : comentario, se aconseja la dirección de correo electrónico
+
+<br>
+
+### 2.3 Copiar llave publica (del host) a un servidor
+
+```
+ssh-copy-id -i sshkey_for_xxx.pub user@ip
+```
+-i : nombre de la clave pública (termina en .pub)
+
+<br>
+
+#### 2.4 Como conectarse por SSH desde un computador A a un computador B cuando puerto SSH de computador B no es el predeterminado (22)
 
 1. Escribir en una terminal del computador A:
 
@@ -30,28 +56,11 @@
     
     ```
     ssh usuarioB@192.168.0.10
+    ```
 
+<br>
 
-### Crear llave SSH
-
-```
-ssh-keygen -t ed25519 -a 1000 -f ssh_key_for_xxxx -C user@email.com
-```
-
--t : tipo de encriptación.
--f : nombre del archivo
--a : numero de rondas para descifrar la clave privada. Los números más altos dan como resultado una verificación mas lenta de la contraseña (passphrase) y mayor resistencia al descifrado de contraseñas por fuerza bruta (en caso de robo de las claves). El valor predeterminado es 16 rondas.
--C : comentario, se aconseja la dirección de correo electrónico
-
-
-### Copiar llave publica (del host) a un servidor
-
-```
-ssh-copy-id -i sshkey_for_xxx.pub user@ip
-```
--i : nombre de la clave pública (termina en .pub)
-
-### Tuneles SSH
+### 2.4 Tuneles SSH
 
 #### Como conectarse desde un computador A a un puerto del computador C usando un computador B, por ejemplo cuando el computador A y computador C no están en la misma red, pero computador B si puede conectarse a computador A y computador B
 
@@ -83,7 +92,9 @@ Aunque no es relevante, supongamos que dirección ip de computador A es 192.168.
     
 No solo sirve para sesiones ssh, tambien nos podemos conectar a cualquier otro servicio en cualquier otro puerto
 
-#### Como conectarse desde un computador A a un puerto del computador C y a otro puerto de un computador D usando un computador B, por ejemplo cuando el computador A no está en la misma red del computador C y computador D, pero computador B si puede conectarse a computadorA, computador C y computador D (estando computador C y D en misma red o redes diferentes)
+<br>
+
+#### 2.5 Como conectarse desde un computador A a un puerto del computador C y a otro puerto de un computador D usando un computador B, por ejemplo cuando el computador A no está en la misma red del computador C y computador D, pero computador B si puede conectarse a computador A, computador C y computador D (estando computador C y D en misma red o redes diferentes)
 
 Aunque no es relevante, supongamos que dirección ip de computador A es 192.168.100.1, está en la subred 196.168.1.100.0 máscara 255.255.255.0 (misma subred de computador B).
 
